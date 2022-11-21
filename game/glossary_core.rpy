@@ -10,7 +10,7 @@
 screen glossary_word_frame(word, focus_rect):
     frame:
         # it is better to make the maximum width smaller
-        # 1350 using for test __FitChild
+        # 1800 using for test __FitChild
         xmaximum 1800
         #xmaximum 400
 
@@ -22,6 +22,9 @@ screen glossary_word_frame(word, focus_rect):
         has vbox
         text word.word style_suffix 'title_text'
         text word.description style_suffix 'description_text'
+        if word.note:
+            null height 16
+            text word.note style_suffix 'note_text'
 
 
 style glossary_button is default
@@ -33,6 +36,10 @@ style glossary_title_text is text:
 style glossary_description_text is text:
     size 20
 
+style glossary_note_text is text:
+    color '#b68752'
+    size 18
+
 init -1 python:
     GLOSSARY_WORDS = {}
 
@@ -40,10 +47,11 @@ init -1 python:
         return GLOSSARY_WORDS[uid]
 
     class GlossaryWord:
-        def __init__(self, uid, word, description):
+        def __init__(self, uid, word, description, note=None):
             self.uid = uid
             self.word = word
             self.description = description
+            self.note = note
             GLOSSARY_WORDS[uid] = self
         
         def __reduce__(self):

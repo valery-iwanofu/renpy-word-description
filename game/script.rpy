@@ -12,7 +12,8 @@ init python:
     GlossaryWord(
         uid='normal_word',
         word=_('Normal word'),
-        description='Short description'
+        description=_('Short description'),
+        note=_('Note')
     )
 
     GlossaryWord(

@@ -7,7 +7,8 @@ init python:
     GlossaryWord(
         uid='unique_word_id',
         word=_('Tatakae'),
-        description=_('Means fight in Japanese.')
+        description=_('Means fight in Japanese.'),
+        note=_('Eren repeated this line many times.')
     )
  ```
  * Use `glossary` in characters lines:
