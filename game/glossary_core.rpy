@@ -59,20 +59,12 @@ init -1 python:
 
 init python:
     def glossary_tag(tag, argument, contents):
-        # https://github.com/renpy/renpy/issues/4102
-        if len(contents) == 0:
-            # TODO maybe, this is bad idea
-            text = GLOSSARY_WORDS[argument].word
-        elif len(contents) == 1 and contents[0][0] == renpy.TEXT_TEXT:
-            text = contents[0][1]
-        else:
-            raise ValueError('glossary tag should contain only text')
-
         return [
             (
                 renpy.TEXT_DISPLAYABLE, 
                 TextButton(
-                    text, 
+                    contents, 
+                    text_tokenized=True,
                     hovered=[CaptureFocus('glossary_tooltip'), Show('glossary_word', None, argument)],
                     unhovered=[ClearFocus('glossary_tooltip'), Hide('glossary_word')],
                     action=NullAction(),

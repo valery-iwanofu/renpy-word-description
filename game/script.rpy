@@ -24,9 +24,9 @@ init python:
 
 label start:
     scene expression '#1100ffff'
-    'Hello... {glossary=tall_word}word{/glossary}. OOOOOOOOOOOOOOO. {glossary=long_word}Capitalized word{/glossary}. {glossary=normal_word}Short word{/glossary}.'
+    'Hello... {glossary=tall_word}{b}word{/b}{/glossary}. OOOOOOOOOOOOOOO. {glossary=long_word}Capitalized word{/glossary}. {glossary=normal_word}Short word{/glossary}.'
 
-    'Eren' '{glossary=unique_word_id}Tatakae, tatakae, tatakae{/glossary}.'
+    'Eren' '{glossary=unique_word_id}{s}Tatakae, tatakae, tatakae{/s}{/glossary}.'
     'Hange' 'Are you mad?'
 
     return
